@@ -184,14 +184,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
       {/* Video Interaction Controls in Top Right */}
       <div className="absolute top-6 right-4 sm:top-8 sm:right-6 z-20 flex items-center gap-2">
-        {/* Live Looping Indicator */}
-        <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 border border-white/10 backdrop-blur-md text-xs text-neutral-300">
-          <span className={`w-2 h-2 rounded-full ${isPlaying ? 'bg-emerald-400 animate-pulse' : 'bg-neutral-500'}`} />
-          <span className="text-[11px] font-medium tracking-wide">
-            {isPlaying ? 'Looping Video' : 'Video Paused'}
-          </span>
-        </div>
-
         {/* Scene Switcher */}
         <button
           onClick={() => setActiveSceneIndex((prev) => (prev + 1) % VIDEO_SCENES.length)}

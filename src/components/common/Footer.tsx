@@ -102,16 +102,6 @@ export const Footer: React.FC<FooterProps> = ({
         <p>
           Crafted with poise & precision • <strong className="text-neutral-300">MERIDIAN Travel Intelligence</strong>.
         </p>
-
-        <div className="flex items-center gap-4">
-          <span>React 18</span>
-          <span>•</span>
-          <span>TypeScript</span>
-          <span>•</span>
-          <span>Tailwind CSS</span>
-          <span>•</span>
-          <span>Leaflet</span>
-        </div>
       </div>
     </footer>
   );
