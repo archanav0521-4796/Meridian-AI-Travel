@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Volume2, VolumeX, Play, Pause, Search, ArrowDown, Sparkles, MapPin } from 'lucide-react';
+import { Search, ArrowDown, Sparkles, MapPin } from 'lucide-react';
 import { Continent } from '../../types';
 
 interface HeroSectionProps {
@@ -18,12 +18,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   totalDestinations = 30,
 }) => {
   const [activeVideoIndex, setActiveVideoIndex] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [isMuted, setIsMuted] = useState(true);
   const videoRef1 = useRef<HTMLVideoElement | null>(null);
   const videoRef2 = useRef<HTMLVideoElement | null>(null);
-  const audioContextRef = useRef<AudioContext | null>(null);
-  const gainNodeRef = useRef<GainNode | null>(null);
 
   // Guarantee browser autoplay for both videos
   useEffect(() => {
@@ -43,107 +39,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
   // Seamlessly cycle between both looping videos every 10 seconds
   useEffect(() => {
-    if (!isPlaying) return;
     const interval = setInterval(() => {
       setActiveVideoIndex((prev) => (prev === 0 ? 1 : 0));
     }, 10000); // 10-second alternating loop
 
     return () => clearInterval(interval);
-  }, [isPlaying]);
-
-  // Toggle Video Play/Pause for both videos
-  const togglePlay = () => {
-    const v1 = videoRef1.current;
-    const v2 = videoRef2.current;
-    if (isPlaying) {
-      v1?.pause();
-      v2?.pause();
-      setIsPlaying(false);
-    } else {
-      v1?.play().catch(() => {});
-      v2?.play().catch(() => {});
-      setIsPlaying(true);
-    }
-  };
-
-  // Ambient Ocean / Nature sound synthesizer via Web Audio API
-  // Ensures sound toggle works 100% reliably in all browsers without broken MP3 links!
-  const toggleAudioAmbiance = () => {
-    if (isMuted) {
-      try {
-        const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
-        if (!audioContextRef.current) {
-          const ctx = new AudioCtx();
-          audioContextRef.current = ctx;
-
-          // Generate pink noise for soft ocean surf
-          const bufferSize = ctx.sampleRate * 2;
-          const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
-          const output = noiseBuffer.getChannelData(0);
-          let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
-          for (let i = 0; i < bufferSize; i++) {
-            const white = Math.random() * 2 - 1;
-            b0 = 0.99886 * b0 + white * 0.0555179;
-            b1 = 0.99332 * b1 + white * 0.0750759;
-            b2 = 0.96900 * b2 + white * 0.1538520;
-            b3 = 0.86650 * b3 + white * 0.3104856;
-            b4 = 0.55000 * b4 + white * 0.5329522;
-            b5 = -0.7616 * b5 - white * 0.0168980;
-            output[i] = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362) * 0.04;
-            b6 = white * 0.115926;
-          }
-
-          const whiteNoise = ctx.createBufferSource();
-          whiteNoise.buffer = noiseBuffer;
-          whiteNoise.loop = true;
-
-          // Gentle low-pass filter
-          const filter = ctx.createBiquadFilter();
-          filter.type = 'lowpass';
-          filter.frequency.setValueAtTime(450, ctx.currentTime);
-
-          // Subtle LFO for ocean wave swell
-          const lfo = ctx.createOscillator();
-          lfo.frequency.setValueAtTime(0.12, ctx.currentTime); // one swell every 8s
-          const lfoGain = ctx.createGain();
-          lfoGain.gain.setValueAtTime(180, ctx.currentTime);
-          lfo.connect(lfoGain);
-          lfoGain.connect(filter.frequency);
-          lfo.start();
-
-          const gain = ctx.createGain();
-          gain.gain.setValueAtTime(0.3, ctx.currentTime);
-          gainNodeRef.current = gain;
-
-          whiteNoise.connect(filter);
-          filter.connect(gain);
-          gain.connect(ctx.destination);
-          whiteNoise.start();
-        } else if (audioContextRef.current.state === 'suspended') {
-          audioContextRef.current.resume();
-        }
-
-        if (gainNodeRef.current && audioContextRef.current) {
-          gainNodeRef.current.gain.setTargetAtTime(0.3, audioContextRef.current.currentTime, 0.5);
-        }
-        setIsMuted(false);
-      } catch (e) {
-        console.warn('Audio context creation blocked by browser policy:', e);
-      }
-    } else {
-      if (gainNodeRef.current && audioContextRef.current) {
-        gainNodeRef.current.gain.setTargetAtTime(0.001, audioContextRef.current.currentTime, 0.5);
-      }
-      setIsMuted(true);
-    }
-  };
-
-  useEffect(() => {
-    return () => {
-      if (audioContextRef.current && audioContextRef.current.state !== 'closed') {
-        audioContextRef.current.close();
-      }
-    };
   }, []);
 
   const continents: Continent[] = ['All', 'Europe', 'Asia', 'Americas', 'Africa', 'Oceania'];
@@ -187,34 +87,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         {/* Sophisticated Editorial Vignette & Gradient Overlays */}
         <div className="absolute inset-0 z-2 bg-gradient-to-t from-[#090a0f] via-black/40 to-black/70 pointer-events-none" />
         <div className="absolute inset-0 z-2 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-black/20 to-[#090a0f] pointer-events-none" />
-      </div>
-
-      {/* Video Interaction Controls in Top Right */}
-      <div className="absolute top-6 right-4 sm:top-8 sm:right-6 z-20 flex items-center gap-2">
-        {/* Play/Pause Toggle */}
-        <button
-          onClick={togglePlay}
-          className="p-2.5 rounded-full bg-black/40 hover:bg-black/70 text-neutral-300 hover:text-white border border-white/10 backdrop-blur-md transition"
-          title={isPlaying ? 'Pause background video' : 'Play background video'}
-          aria-label={isPlaying ? 'Pause background video' : 'Play background video'}
-        >
-          {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
-        </button>
-
-        {/* Ambient Sound Toggle */}
-        <button
-          onClick={toggleAudioAmbiance}
-          className={`flex items-center gap-1.5 px-3 py-2 rounded-full border backdrop-blur-md text-xs font-medium transition ${
-            !isMuted
-              ? 'bg-amber-500/20 text-amber-200 border-amber-500/40'
-              : 'bg-black/40 text-neutral-300 border-white/10 hover:text-white'
-          }`}
-          title={isMuted ? 'Turn on ambient sound' : 'Mute ambient sound'}
-          aria-label={isMuted ? 'Turn on ambient sound' : 'Mute ambient sound'}
-        >
-          {!isMuted ? <Volume2 className="w-3.5 h-3.5 text-amber-400" /> : <VolumeX className="w-3.5 h-3.5" />}
-          <span className="hidden sm:inline">{!isMuted ? 'Ambient Ocean' : 'Sound'}</span>
-        </button>
       </div>
 
       {/* Main Content */}
