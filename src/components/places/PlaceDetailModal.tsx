@@ -32,6 +32,9 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
           <img
             src={place.imageUrl}
             alt={place.name}
+            onError={(e) => {
+              e.currentTarget.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Torii_path_with_lantern_at_Fushimi_Inari_Taisha_Shrine%2C_Kyoto%2C_Japan.jpg/1280px-Torii_path_with_lantern_at_Fushimi_Inari_Taisha_Shrine%2C_Kyoto%2C_Japan.jpg';
+            }}
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#11131a] via-black/30 to-transparent" />

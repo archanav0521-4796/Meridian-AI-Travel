@@ -17,7 +17,7 @@ export const DESTINATIONS: Destination[] = [
       'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1200&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1200&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1528164344705-475426879c0d?q=80&w=1200&auto=format&fit=crop',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Torii_path_with_lantern_at_Fushimi_Inari_Taisha_Shrine%2C_Kyoto%2C_Japan.jpg/1280px-Torii_path_with_lantern_at_Fushimi_Inari_Taisha_Shrine%2C_Kyoto%2C_Japan.jpg',
     ],
     coordinates: { lat: 35.0116, lng: 135.7681 },
     weatherQuery: 'Kyoto,JP',
@@ -42,7 +42,7 @@ export const DESTINATIONS: Destination[] = [
         category: 'Sacred Site',
         description:
           'Dedicated to the Shinto god of rice and commerce, this iconic shrine features over 10,000 vivid scarlet torii gates that snake 4 kilometers through forested mountain slopes, guarded by mystical stone foxes.',
-        imageUrl: 'https://images.unsplash.com/photo-1478436127897-769e00d0c71e?q=80&w=1000&auto=format&fit=crop',
+        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Torii_path_with_lantern_at_Fushimi_Inari_Taisha_Shrine%2C_Kyoto%2C_Japan.jpg/1280px-Torii_path_with_lantern_at_Fushimi_Inari_Taisha_Shrine%2C_Kyoto%2C_Japan.jpg',
         rating: 4.9,
         reviewCount: 42100,
         suggestedDuration: '2.5 - 3.5 hours',

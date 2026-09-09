@@ -52,6 +52,9 @@ export const FamousPlacesSection: React.FC<FamousPlacesSectionProps> = ({
                 src={place.imageUrl}
                 alt={place.name}
                 loading="lazy"
+                onError={(e) => {
+                  e.currentTarget.src = destination.heroImage || 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1000&auto=format&fit=crop';
+                }}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#11131a] via-black/20 to-transparent" />
