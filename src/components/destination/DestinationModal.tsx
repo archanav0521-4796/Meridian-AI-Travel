@@ -275,7 +275,7 @@ export const DestinationModal: React.FC<DestinationModalProps> = ({
           {/* TAB 4: INTERACTIVE MAP */}
           {activeTab === 'map' && (
             <div className="space-y-4">
-              <InteractiveMap destination={destination} />
+              <InteractiveMap destination={destination} userLocation={userLocation} />
             </div>
           )}
 

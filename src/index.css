@@ -49,6 +49,11 @@
   background: #151821 !important;
 }
 
+.custom-leaflet-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
 /* Glassmorphism helpers */
 .glass-panel {
   background: rgba(17, 19, 26, 0.75);
