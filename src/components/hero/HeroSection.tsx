@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Volume2, VolumeX, Play, Pause, Search, ArrowDown, Sparkles, MapPin } from 'lucide-react';
+import { Volume2, VolumeX, Play, Pause, Search, ArrowDown, Sparkles, MapPin, Film } from 'lucide-react';
 import { Continent } from '../../types';
 
 interface HeroSectionProps {
@@ -9,27 +9,63 @@ interface HeroSectionProps {
   selectedContinent: Continent;
 }
 
+const VIDEO_SCENES = [
+  {
+    id: 'coastal',
+    title: 'Coastal Horizons',
+    src: `${import.meta.env.BASE_URL}videos/hero.mp4`,
+    type: 'video/mp4',
+    badge: '4K Ocean Waves',
+  },
+  {
+    id: 'sunset',
+    title: 'River Sunset Sanctuary',
+    src: `${import.meta.env.BASE_URL}videos/hero.webm`,
+    type: 'video/webm',
+    badge: '1080p Sunset Glow',
+  },
+];
+
 export const HeroSection: React.FC<HeroSectionProps> = ({
   searchQuery,
   onSearchChange,
   onSelectContinent,
   selectedContinent,
 }) => {
+  const [activeSceneIndex, setActiveSceneIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const audioContextRef = useRef<AudioContext | null>(null);
   const gainNodeRef = useRef<GainNode | null>(null);
 
+  // Guarantee browser autoplay by programmatically setting muted before play
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.defaultMuted = true;
+      video.muted = true;
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => setIsPlaying(true))
+          .catch((err) => {
+            console.warn('Autoplay prevented by browser, click play to start:', err);
+            setIsPlaying(false);
+          });
+      }
+    }
+  }, [activeSceneIndex]);
+
   // Toggle Video Play/Pause
   const togglePlay = () => {
-    if (videoRef.current) {
+    const video = videoRef.current;
+    if (video) {
       if (isPlaying) {
-        videoRef.current.pause();
+        video.pause();
         setIsPlaying(false);
       } else {
-        videoRef.current.play();
-        setIsPlaying(true);
+        video.play().then(() => setIsPlaying(true)).catch(() => {});
       }
     }
   };
@@ -122,22 +158,23 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       <div className="absolute inset-0 z-0">
         <video
           ref={videoRef}
+          key={VIDEO_SCENES[activeSceneIndex].src}
           autoPlay
           loop
           muted
           playsInline
           poster="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1920&auto=format&fit=crop"
+          onPlay={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
           className="w-full h-full object-cover opacity-60 scale-105 transition-transform duration-1000 ease-out"
         >
-          {/* Public domain cinematic travel video streams */}
           <source
-            src="https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-waves-crashing-on-a-rocky-shore-42998-large.mp4"
-            type="video/mp4"
+            src={VIDEO_SCENES[activeSceneIndex].src}
+            type={VIDEO_SCENES[activeSceneIndex].type}
           />
-          <source
-            src="https://assets.mixkit.co/videos/preview/mixkit-mountain-landscape-with-lake-and-mist-42774-large.mp4"
-            type="video/mp4"
-          />
+          {/* Direct relative fallbacks */}
+          <source src="./videos/hero.mp4" type="video/mp4" />
+          <source src="./videos/hero.webm" type="video/webm" />
         </video>
 
         {/* Sophisticated Editorial Vignette & Gradient Overlays */}
@@ -146,7 +183,28 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       </div>
 
       {/* Video Interaction Controls in Top Right */}
-      <div className="absolute top-8 right-6 z-20 flex items-center gap-2">
+      <div className="absolute top-6 right-4 sm:top-8 sm:right-6 z-20 flex items-center gap-2">
+        {/* Live Looping Indicator */}
+        <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 border border-white/10 backdrop-blur-md text-xs text-neutral-300">
+          <span className={`w-2 h-2 rounded-full ${isPlaying ? 'bg-emerald-400 animate-pulse' : 'bg-neutral-500'}`} />
+          <span className="text-[11px] font-medium tracking-wide">
+            {isPlaying ? 'Looping Video' : 'Video Paused'}
+          </span>
+        </div>
+
+        {/* Scene Switcher */}
+        <button
+          onClick={() => setActiveSceneIndex((prev) => (prev + 1) % VIDEO_SCENES.length)}
+          className="flex items-center gap-1.5 px-3 py-2 rounded-full bg-black/40 hover:bg-black/70 text-neutral-300 hover:text-white border border-white/10 backdrop-blur-md text-xs font-medium transition group"
+          title={`Switch Scene: currently ${VIDEO_SCENES[activeSceneIndex].title}`}
+          aria-label="Switch cinematic background video scene"
+        >
+          <Film className="w-3.5 h-3.5 text-amber-400 group-hover:rotate-12 transition-transform duration-300" />
+          <span className="hidden sm:inline">{VIDEO_SCENES[activeSceneIndex].title}</span>
+          <span className="sm:hidden">Scene</span>
+        </button>
+
+        {/* Play/Pause Toggle */}
         <button
           onClick={togglePlay}
           className="p-2.5 rounded-full bg-black/40 hover:bg-black/70 text-neutral-300 hover:text-white border border-white/10 backdrop-blur-md transition"
@@ -155,6 +213,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         >
           {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
         </button>
+
+        {/* Ambient Sound Toggle */}
         <button
           onClick={toggleAudioAmbiance}
           className={`flex items-center gap-1.5 px-3 py-2 rounded-full border backdrop-blur-md text-xs font-medium transition ${
