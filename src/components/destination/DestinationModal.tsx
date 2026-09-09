@@ -265,7 +265,7 @@ export const DestinationModal: React.FC<DestinationModalProps> = ({
                     Explore the {destination.famousPlaces.length}-Stop Discovery Circuit
                   </h4>
                   <p className="text-xs text-neutral-400 font-light mt-0.5">
-                    Interactive route polyline, distance metrics, and transit times • Zero API key required
+                    Interactive route polyline, distance metrics, and scenic transit times
                   </p>
                 </div>
                 <button

@@ -54,6 +54,10 @@
   border: none !important;
 }
 
+.leaflet-control-attribution {
+  display: none !important;
+}
+
 /* Glassmorphism helpers */
 .glass-panel {
   background: rgba(17, 19, 26, 0.75);

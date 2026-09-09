@@ -389,12 +389,10 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ destination, use
           )}
         </div>
 
-        {/* Zero API Key Required Verification Badge */}
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 text-xs self-start sm:self-auto">
-          <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-          <span className="font-medium">
-            Zero API Key Required <span className="hidden lg:inline text-emerald-400/70">• Autonomous Geospatial Telemetry</span>
-          </span>
+        {/* Route Status Badge */}
+        <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/5 border border-white/10 text-neutral-300 text-xs self-start sm:self-auto font-medium">
+          <Compass className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+          <span>Interactive Route Navigator</span>
         </div>
       </div>
 
@@ -404,11 +402,12 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ destination, use
           center={[centerLat, centerLng]}
           zoom={13}
           scrollWheelZoom={false}
+          attributionControl={false}
           className="w-full h-full z-10"
         >
-          {/* Dark Mode CartoDB Tile Layer (Free, fast, no proprietary Google Maps API key required) */}
+          {/* Dark Mode Basemap Layer */}
           <TileLayer
-            attribution='&copy; <a href="https://carto.com/">CARTO</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            attribution=""
             url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
           />
 
@@ -658,16 +657,16 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ destination, use
 
           <div className="p-4 rounded-2xl glass-card border border-white/10">
             <span className="text-[10px] text-neutral-400 uppercase tracking-wider block font-medium">
-              Routing Engine
+              Navigation Mode
             </span>
             <div className="flex items-center gap-1.5 mt-1">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+              <Navigation className="w-4 h-4 text-amber-400" />
               <span className="font-serif text-sm sm:text-base text-white font-normal">
-                OpenStreetMap
+                Curated
               </span>
             </div>
-            <span className="text-[11px] text-emerald-400 font-medium mt-0.5 block">
-              Zero API Key Required
+            <span className="text-[11px] text-neutral-400 font-medium mt-0.5 block">
+              Scenic Circuit
             </span>
           </div>
         </div>
