@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Volume2, VolumeX, Play, Pause, Search, ArrowDown, Sparkles, MapPin, Film } from 'lucide-react';
+import { Volume2, VolumeX, Play, Pause, Search, ArrowDown, Sparkles, MapPin } from 'lucide-react';
 import { Continent } from '../../types';
 
 interface HeroSectionProps {
@@ -10,23 +10,6 @@ interface HeroSectionProps {
   totalDestinations?: number;
 }
 
-const VIDEO_SCENES = [
-  {
-    id: 'coastal',
-    title: 'Coastal Horizons',
-    src: `${import.meta.env.BASE_URL}videos/hero.mp4`,
-    type: 'video/mp4',
-    badge: '4K Ocean Waves',
-  },
-  {
-    id: 'sunset',
-    title: 'River Sunset Sanctuary',
-    src: `${import.meta.env.BASE_URL}videos/hero.webm`,
-    type: 'video/webm',
-    badge: '1080p Sunset Glow',
-  },
-];
-
 export const HeroSection: React.FC<HeroSectionProps> = ({
   searchQuery,
   onSearchChange,
@@ -34,41 +17,52 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   selectedContinent,
   totalDestinations = 30,
 }) => {
-  const [activeSceneIndex, setActiveSceneIndex] = useState(0);
+  const [activeVideoIndex, setActiveVideoIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
-  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const videoRef1 = useRef<HTMLVideoElement | null>(null);
+  const videoRef2 = useRef<HTMLVideoElement | null>(null);
   const audioContextRef = useRef<AudioContext | null>(null);
   const gainNodeRef = useRef<GainNode | null>(null);
 
-  // Guarantee browser autoplay by programmatically setting muted before play
+  // Guarantee browser autoplay for both videos
   useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      video.defaultMuted = true;
-      video.muted = true;
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => setIsPlaying(true))
-          .catch((err) => {
-            console.warn('Autoplay prevented by browser, click play to start:', err);
-            setIsPlaying(false);
+    [videoRef1.current, videoRef2.current].forEach((video) => {
+      if (video) {
+        video.defaultMuted = true;
+        video.muted = true;
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.catch((err) => {
+            console.warn('Autoplay prevented by browser:', err);
           });
+        }
       }
-    }
-  }, [activeSceneIndex]);
+    });
+  }, []);
 
-  // Toggle Video Play/Pause
+  // Seamlessly cycle between both looping videos every 10 seconds
+  useEffect(() => {
+    if (!isPlaying) return;
+    const interval = setInterval(() => {
+      setActiveVideoIndex((prev) => (prev === 0 ? 1 : 0));
+    }, 10000); // 10-second alternating loop
+
+    return () => clearInterval(interval);
+  }, [isPlaying]);
+
+  // Toggle Video Play/Pause for both videos
   const togglePlay = () => {
-    const video = videoRef.current;
-    if (video) {
-      if (isPlaying) {
-        video.pause();
-        setIsPlaying(false);
-      } else {
-        video.play().then(() => setIsPlaying(true)).catch(() => {});
-      }
+    const v1 = videoRef1.current;
+    const v2 = videoRef2.current;
+    if (isPlaying) {
+      v1?.pause();
+      v2?.pause();
+      setIsPlaying(false);
+    } else {
+      v1?.play().catch(() => {});
+      v2?.play().catch(() => {});
+      setIsPlaying(true);
     }
   };
 
@@ -156,54 +150,53 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
   return (
     <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden bg-black">
-      {/* Background Video Layer with Graceful Fallback */}
-      <div className="absolute inset-0 z-0">
+      {/* Background Video Layer with 10-Second Alternating Cross-Fade */}
+      <div className="absolute inset-0 z-0 overflow-hidden bg-black">
+        {/* Looping Scene 1: Coastal Horizons */}
         <video
-          ref={videoRef}
-          key={VIDEO_SCENES[activeSceneIndex].src}
+          ref={videoRef1}
           autoPlay
           loop
           muted
           playsInline
           poster="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1920&auto=format&fit=crop"
-          onPlay={() => setIsPlaying(true)}
-          onPause={() => setIsPlaying(false)}
-          className="w-full h-full object-cover opacity-60 scale-105 transition-transform duration-1000 ease-out"
+          className={`absolute inset-0 w-full h-full object-cover scale-105 transition-opacity duration-1000 ease-in-out ${
+            activeVideoIndex === 0 ? 'opacity-60 z-1' : 'opacity-0 z-0 pointer-events-none'
+          }`}
         >
-          <source
-            src={VIDEO_SCENES[activeSceneIndex].src}
-            type={VIDEO_SCENES[activeSceneIndex].type}
-          />
-          {/* Direct relative fallbacks */}
+          <source src={`${import.meta.env.BASE_URL}videos/hero.mp4`} type="video/mp4" />
           <source src="./videos/hero.mp4" type="video/mp4" />
+        </video>
+
+        {/* Looping Scene 2: Golden Sunset */}
+        <video
+          ref={videoRef2}
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1920&auto=format&fit=crop"
+          className={`absolute inset-0 w-full h-full object-cover scale-105 transition-opacity duration-1000 ease-in-out ${
+            activeVideoIndex === 1 ? 'opacity-60 z-1' : 'opacity-0 z-0 pointer-events-none'
+          }`}
+        >
+          <source src={`${import.meta.env.BASE_URL}videos/hero.webm`} type="video/webm" />
           <source src="./videos/hero.webm" type="video/webm" />
         </video>
 
         {/* Sophisticated Editorial Vignette & Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#090a0f] via-black/40 to-black/70" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-black/20 to-[#090a0f]" />
+        <div className="absolute inset-0 z-2 bg-gradient-to-t from-[#090a0f] via-black/40 to-black/70 pointer-events-none" />
+        <div className="absolute inset-0 z-2 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-black/20 to-[#090a0f] pointer-events-none" />
       </div>
 
       {/* Video Interaction Controls in Top Right */}
       <div className="absolute top-6 right-4 sm:top-8 sm:right-6 z-20 flex items-center gap-2">
-        {/* Scene Switcher */}
-        <button
-          onClick={() => setActiveSceneIndex((prev) => (prev + 1) % VIDEO_SCENES.length)}
-          className="flex items-center gap-1.5 px-3 py-2 rounded-full bg-black/40 hover:bg-black/70 text-neutral-300 hover:text-white border border-white/10 backdrop-blur-md text-xs font-medium transition group"
-          title={`Switch Scene: currently ${VIDEO_SCENES[activeSceneIndex].title}`}
-          aria-label="Switch cinematic background video scene"
-        >
-          <Film className="w-3.5 h-3.5 text-amber-400 group-hover:rotate-12 transition-transform duration-300" />
-          <span className="hidden sm:inline">{VIDEO_SCENES[activeSceneIndex].title}</span>
-          <span className="sm:hidden">Scene</span>
-        </button>
-
         {/* Play/Pause Toggle */}
         <button
           onClick={togglePlay}
           className="p-2.5 rounded-full bg-black/40 hover:bg-black/70 text-neutral-300 hover:text-white border border-white/10 backdrop-blur-md transition"
-          title={isPlaying ? 'Pause video' : 'Play video'}
-          aria-label={isPlaying ? 'Pause video' : 'Play video'}
+          title={isPlaying ? 'Pause background video' : 'Play background video'}
+          aria-label={isPlaying ? 'Pause background video' : 'Play background video'}
         >
           {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
         </button>
