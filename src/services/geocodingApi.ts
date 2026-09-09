@@ -7,6 +7,16 @@ export interface CityLocation {
 }
 
 export const POPULAR_DEPARTURE_HUBS: CityLocation[] = [
+  { city: 'Mumbai', country: 'India', lat: 19.076, lng: 72.8777, continent: 'Asia' },
+  { city: 'New Delhi', country: 'India', lat: 28.6139, lng: 77.209, continent: 'Asia' },
+  { city: 'Bengaluru', country: 'India', lat: 12.9716, lng: 77.5946, continent: 'Asia' },
+  { city: 'Hyderabad', country: 'India', lat: 17.385, lng: 78.4867, continent: 'Asia' },
+  { city: 'Chennai', country: 'India', lat: 13.0827, lng: 80.2707, continent: 'Asia' },
+  { city: 'Kolkata', country: 'India', lat: 22.5726, lng: 88.3639, continent: 'Asia' },
+  { city: 'Colombo', country: 'Sri Lanka', lat: 6.9271, lng: 79.8612, continent: 'Asia' },
+  { city: 'Kathmandu', country: 'Nepal', lat: 27.7172, lng: 85.324, continent: 'Asia' },
+  { city: 'Male', country: 'Maldives', lat: 4.1755, lng: 73.5093, continent: 'Asia' },
+  { city: 'Thimphu', country: 'Bhutan', lat: 27.4728, lng: 89.6393, continent: 'Asia' },
   { city: 'London', country: 'United Kingdom', lat: 51.5074, lng: -0.1278, continent: 'Europe' },
   { city: 'New York', country: 'United States', lat: 40.7128, lng: -74.006, continent: 'Americas' },
   { city: 'Tokyo', country: 'Japan', lat: 35.6762, lng: 139.6503, continent: 'Asia' },
@@ -16,7 +26,6 @@ export const POPULAR_DEPARTURE_HUBS: CityLocation[] = [
   { city: 'Sydney', country: 'Australia', lat: -33.8688, lng: 151.2093, continent: 'Oceania' },
   { city: 'Los Angeles', country: 'United States', lat: 34.0522, lng: -118.2437, continent: 'Americas' },
   { city: 'Toronto', country: 'Canada', lat: 43.6532, lng: -79.3832, continent: 'Americas' },
-  { city: 'Mumbai', country: 'India', lat: 19.076, lng: 72.8777, continent: 'Asia' },
   { city: 'Berlin', country: 'Germany', lat: 52.52, lng: 13.405, continent: 'Europe' },
   { city: 'Rome', country: 'Italy', lat: 41.9028, lng: 12.4964, continent: 'Europe' },
   { city: 'San Francisco', country: 'United States', lat: 37.7749, lng: -122.4194, continent: 'Americas' },
@@ -28,7 +37,6 @@ export const POPULAR_DEPARTURE_HUBS: CityLocation[] = [
   { city: 'Bangkok', country: 'Thailand', lat: 13.7563, lng: 100.5018, continent: 'Asia' },
   { city: 'Barcelona', country: 'Spain', lat: 41.3851, lng: 2.1734, continent: 'Europe' },
   { city: 'Istanbul', country: 'Turkey', lat: 41.0082, lng: 28.9784, continent: 'Europe' },
-  { city: 'Buenos Aires', country: 'Argentina', lat: -34.6037, lng: -58.3816, continent: 'Americas' },
   { city: 'Zurich', country: 'Switzerland', lat: 47.3769, lng: 8.5417, continent: 'Europe' },
   { city: 'Auckland', country: 'New Zealand', lat: -36.8485, lng: 174.7633, continent: 'Oceania' },
 ];

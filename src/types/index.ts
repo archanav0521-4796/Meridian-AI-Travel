@@ -13,7 +13,10 @@ export type TravelVibe =
   | 'Alpine & Nature'
   | 'Urban & Modern'
   | 'Romantic & Luxury'
-  | 'Scenic Viewpoint';
+  | 'Scenic Viewpoint'
+  | 'Sacred Site'
+  | 'Natural Wonder';
+
 
 
 export type BudgetTier = '$' | '$$' | '$$$' | '$$$$';

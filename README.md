@@ -1,20 +1,49 @@
-# VOYAGE — Editorial Luxury Travel & AI Concierge
+# MERIDIAN — Editorial Luxury Travel & AI Concierge
 
-> **Front-End Developer Assignment for designesthetics**  
-> An editorial-grade, responsive travel intelligence platform balancing design restraint, typography, real-time meteorological telemetry, and AI trip planning.
+> **An editorial-grade, responsive travel intelligence platform balancing classical typography, real-time meteorological telemetry, and AI itinerary planning.**
 
 ---
 
 ## 🌐 Live Deployed Application
 
-- **Live URL**: *(Deployable via GitHub Pages / Vercel / Netlify)*
-- **GitHub Repository**: Public repository ready for evaluation
+- **Live URL**: *(Ready for GitHub Pages / Vercel / Netlify deployment)*
+- **GitHub Repository**: Public repository ready for showcase
 
 ---
 
 ## 📖 Project Overview
 
-**VOYAGE** was designed from the ground up to embody the philosophy of **designesthetics**: where visual design carries the most weight. Eschewing the cluttered, generic layouts of standard travel directories, VOYAGE pairs high-fashion editorial typography (`Playfair Display`, `Cinzel`, and `Plus Jakarta Sans`) with an obsidian-and-champagne visual architecture, micro-interactions, and real-time data pipelines.
+**MERIDIAN** was designed from the ground up to embody modern luxury travel: where visual poise, typography, and micro-interactions carry the most weight. Eschewing the cluttered, generic layouts of standard travel directories, MERIDIAN pairs high-fashion editorial typography (`Playfair Display`, `Cinzel`, and `Plus Jakarta Sans`) with an obsidian-and-champagne visual architecture, interactive maps, and real-time data pipelines.
+
+---
+
+## 🌏 Curated Portfolios (21 Global Destinations)
+
+### 🇮🇳 India & South Asia
+- **Jaipur & Rajasthan (India)**: The Pink City, Amber Fort, Sheesh Mahal mirror mosaic, and Hawa Mahal.
+- **Kerala Backwaters & Munnar (India)**: Alleppey luxury houseboats, Vembanad Lake, and misty Kolukkumalai tea peaks.
+- **Varanasi (India)**: Sacred Ganga ghats, hypnotic evening Maha Aarti, and ancient Sarnath deer park.
+- **Ladakh & Pangong Tso (India)**: High-altitude salt lake, Thiksey Monastery, and Khardung La mountain pass.
+- **Goa & Konkan Coast (India)**: Arabian Sea sunset shacks, Palolem crescent bay, and UNESCO Baroque basilicas.
+- **Sri Lanka**: 5th-century Sigiriya Lion Rock sky palace, Ella Nine Arch viaduct, and Galle Dutch Fort.
+- **Bhutan**: Paro Taktsang (Tiger’s Nest cliffside monastery), Punakha Dzong, and Gross National Happiness.
+- **Nepal**: Sacred Boudhanath mandala stupa, Phewa Lake boating, and Annapurna sunrise at Sarangkot.
+- **Maldives**: Baa Atoll UNESCO Biosphere, Hanifaru Bay manta ray cyclones, and bioluminescent lagoons.
+
+### 🌍 Global Icons
+- **Kyoto (Japan)**: Fushimi Inari torii gates, Kinkaku-ji Golden Pavilion, and Arashiyama bamboo grove.
+- **Paris (France)**: The Eiffel Tower summit, Musée du Louvre, and Montmartre Sacré-Cœur.
+- **Santorini (Greece)**: Oia caldera rim, Skaros Rock, and whitewashed Aegean cubism.
+- **Cape Town (South Africa)**: Table Mountain rotating cableway, Boulders Beach penguin colony, and Bo-Kaap.
+- **Amalfi Coast (Italy)**: Positano pastel cliffs and Ravello Villa Cimbrone Terrace of Infinity.
+- **Bali (Indonesia)**: Tegallalang stepped rice terraces and Uluwatu cliffside Kecak fire dance.
+- **Swiss Alps & Zermatt (Switzerland)**: Gornergrat cogwheel railway and Matterhorn alpine panorama.
+- **Reykjavik (Iceland)**: Hallgrímskirkja basalt tower, Gullfoss waterfall, and Strokkur geysers.
+- **Banff & Lake Louise (Canada)**: Turquoise glacial waters framed by the Canadian Rocky Mountains.
+- **Rio de Janeiro (Brazil)**: Christ the Redeemer atop Corcovado and golden sands of Copacabana.
+- **Cairo & Giza (Egypt)**: The Great Pyramids and the Sphinx defying time on the desert plateau.
+- **Queenstown (New Zealand)**: Glacial Lake Wakatipu and Skyline Gondola over the Remarkables.
+- **Tokyo (Japan)**: Sensō-ji Temple in Asakusa and neon-lit Shibuya crossing.
 
 ---
 
@@ -26,7 +55,7 @@
 - Editorial typography, instant search pill, live statistics ticker, and quick continent pill filters that invite the visitor to explore.
 
 ### 2. 02 Destination Explorer
-- Multi-faceted exploration across **12 world-class destinations** spanning 5 continents.
+- Multi-faceted exploration across **21 world-class destinations** spanning 5 continents.
 - Real-time search with fuzzy matching across names, countries, tags, landmarks, and vibes.
 - Dynamic filtering by **Region** (Europe, Asia, Americas, Africa, Oceania) and **Atmosphere** (Cultural & Historic, Beach & Coastal, Alpine & Nature, Urban & Modern, Romantic & Luxury).
 - Sorting by **Featured**, **Nearest to You**, **Furthest Away**, **Daily Budget**, and **Name**.
@@ -41,7 +70,7 @@
 - Integrates browser **Geolocation API** to determine the visitor's departure city.
 - Graceful permission states: if permission is prompt, granted, or denied, the app never crashes or shows an ugly alert.
 - Displays *"Departing from: [City, Country]"* and calculates exact **Haversine great-circle distances (km/miles)** and **estimated direct flight hours**.
-- Interactive **Departure Origin Modal** with 24+ pre-indexed global departure hubs (London, New York, Tokyo, Dubai, Singapore, Mumbai, etc.) and custom city lookup, ensuring full utility even when GPS is disabled.
+- Interactive **Departure Origin Modal** with 30+ pre-indexed global departure hubs (Mumbai, New Delhi, Bengaluru, Hyderabad, Chennai, Kolkata, Colombo, Kathmandu, Male, London, New York, Tokyo, Dubai, Singapore, etc.) and custom city lookup, ensuring full utility even when GPS is disabled.
 
 ### 5. 05 Real-Time Meteorological Telemetry
 - **Dual-Engine Weather Architecture**:
@@ -57,7 +86,7 @@
 - Resilient image CDN resolver with blur shimmer loading states and photographer attribution so cards never show broken images.
 
 ### 7. 07 Conversational AI Chatbot (Google Gemini)
-- **VOYAGE Concierge**: An intelligent conversational assistant powered by the **Google Gemini API** (`gemini-1.5-flash` / `gemini-2.5-flash`).
+- **MERIDIAN Concierge**: An intelligent conversational assistant powered by the **Google Gemini API** (`gemini-1.5-flash` / `gemini-2.5-flash`).
 - Destination-aware context: seamlessly adapts advice based on the destination the visitor is currently exploring.
 - Quick prompt chips: *"How long to spend here?"*, *"What to see?"*, *"When is the best time to visit?"*, *"What should I pack?"*, and *"Local food to try?"*.
 - Built-in intelligent travel knowledge base fallback when offline or if no Gemini key is provided.
@@ -89,14 +118,14 @@
 
 ## 🔑 API Configuration & Zero-Config Mode
 
-VOYAGE features a **Zero-Config Live Mode**: it is 100% functional immediately upon opening in a private browser window without requiring any API keys.
+MERIDIAN features a **Zero-Config Live Mode**: it is 100% functional immediately upon opening in a private browser window without requiring any API keys.
 
 | Service | Primary Provider | Zero-Config Live Fallback |
 |---|---|---|
 | **AI Concierge & Itinerary** | Google Gemini API (`gemini-1.5-flash`) | Built-in Curated Intelligence Engine |
 | **Live Weather Telemetry** | OpenWeather API | Open-Meteo Global Satellite Forecast |
 | **Imagery** | Unsplash Developer API | Curated Unsplash High-Res CDN |
-| **Location & Distances** | Browser GPS + Nominatim Geocoding | Haversine Formula + 24 Pre-Indexed Hubs |
+| **Location & Distances** | Browser GPS + Nominatim Geocoding | Haversine Formula + 30 Pre-Indexed Hubs |
 
 ### Adding Custom Keys
 Click the **Gear / Settings icon** in the top navigation bar to open the in-app **API Configuration Modal**. Keys entered there are persisted to `localStorage` and never committed to version control.
@@ -142,34 +171,20 @@ VITE_UNSPLASH_ACCESS_KEY=your_unsplash_key_here
 
 ## 🚢 Deploying to GitHub & Live Hosting
 
-### Option A: Deploy to GitHub Pages (One Command)
-1. In `package.json`, add your repository URL as the homepage (optional):
-   ```json
-   "homepage": "https://<your-username>.github.io/<your-repo-name>"
-   ```
-2. Run:
-   ```bash
-   npm run deploy
-   ```
-   This will automatically build the project and push the `dist/` directory to the `gh-pages` branch.
-3. In your GitHub repository settings, navigate to **Pages** and set the source to `gh-pages` branch.
-
-### Option B: GitHub Actions (Automated CI/CD)
+### Option A: Automatic GitHub Actions (Recommended)
 The repository includes `.github/workflows/deploy.yml`. Once pushed to GitHub:
 1. Go to repository **Settings** -> **Pages**.
 2. Under **Build and deployment**, select **GitHub Actions**.
 3. Every push to `main` will build and publish the site automatically!
+
+### Option B: Deploy via `gh-pages` command
+```bash
+npm run deploy
+```
+Then in **Settings** -> **Pages**, set the branch to `gh-pages`.
 
 ### Option C: Vercel / Netlify
 - Import your repository on [Vercel](https://vercel.com) or [Netlify](https://netlify.com).
 - Build command: `npm run build`
 - Output directory: `dist`
 - The included `vercel.json` ensures SPA routes function seamlessly.
-
----
-
-## 📐 Design Decisions & Restraint
-
-- **Editorial Typography**: Pairing classical serif headlines (`Playfair Display`, `Cinzel`) with geometric sans-serif body text (`Plus Jakarta Sans`) gives the feel of a luxury publication like *Kinfolk* or *Aman*.
-- **Subdued Color System**: Warm obsidian darks (`#08090d`, `#11131a`) with champagne gold accents (`#d4af37`) prioritize readability and focus on photography.
-- **Designing for Failure**: When location is denied, weather APIs are unreachable, or search queries yield empty results, thoughtfully designed empty states, retry actions, and fallback selectors ensure a frictionless experience.

@@ -175,8 +175,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         {/* Subtle Badge */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md text-neutral-300 text-xs tracking-wider uppercase font-medium mb-8 animate-in fade-in slide-in-from-bottom-3 duration-500">
           <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-          <span>Curated Travel Intelligence • designesthetics</span>
+          <span>Curated Global Expeditions • MERIDIAN</span>
         </div>
+
 
         {/* Hero Typography */}
         <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-tight text-white leading-[1.08] mb-6 drop-shadow-lg">
@@ -244,9 +245,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         {/* Live Metrics Ticker */}
         <div className="mt-14 pt-8 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto text-left">
           <div className="px-3">
-            <span className="block text-2xl font-serif text-white">12</span>
+            <span className="block text-2xl font-serif text-white">21</span>
             <span className="text-[11px] text-neutral-400 uppercase tracking-wider">Curated Destinations</span>
           </div>
+
           <div className="px-3 border-l border-white/10">
             <span className="block text-2xl font-serif text-amber-200">Live</span>
             <span className="text-[11px] text-neutral-400 uppercase tracking-wider">Satellite Weather</span>

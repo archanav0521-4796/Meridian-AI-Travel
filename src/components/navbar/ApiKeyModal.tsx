@@ -81,7 +81,8 @@ export const ApiKeyModal: React.FC<ApiKeyModalProps> = ({ isOpen, onClose }) => 
         <div className="my-4 p-3 rounded-xl bg-emerald-950/30 border border-emerald-500/20 flex items-start gap-2.5 text-xs text-emerald-300">
           <ShieldCheck className="w-4 h-4 shrink-0 mt-0.5 text-emerald-400" />
           <div>
-            <span className="font-semibold">Zero-Config Mode Active:</span> Even without entering custom keys, VOYAGE runs live with global satellite weather (Open-Meteo) and our curated intelligence engine. Adding keys unlocks live Gemini 1.5/2.5 Flash and official OpenWeather telemetry.
+            <span className="font-semibold">Zero-Config Mode Active:</span> Even without entering custom keys, MERIDIAN runs live with global satellite weather (Open-Meteo) and our curated intelligence engine. Adding keys unlocks live Gemini 1.5/2.5 Flash and official OpenWeather telemetry.
+
           </div>
         </div>
 

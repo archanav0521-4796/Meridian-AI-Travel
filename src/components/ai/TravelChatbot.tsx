@@ -39,7 +39,8 @@ export const TravelChatbot: React.FC<TravelChatbotProps> = ({
     {
       id: 'msg-1',
       sender: 'assistant',
-      text: `Greetings. I am **VOYAGE Concierge**, your personal travel advisor powered by Google Gemini.\n\nWhether you are wondering **how long to spend** in a destination, **what to see**, **when to go**, or **what to pack**, ask me anything.`,
+      text: `Greetings. I am **MERIDIAN Concierge**, your personal travel advisor powered by Google Gemini.\n\nWhether you are wondering **how long to spend** in a destination, **what to see**, **when to go**, or **what to pack**, ask me anything.`,
+
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     },
   ]);
@@ -140,8 +141,9 @@ export const TravelChatbot: React.FC<TravelChatbotProps> = ({
           </div>
           <div>
             <h4 className="text-sm font-semibold text-white font-serif flex items-center gap-1.5">
-              VOYAGE Concierge
+              MERIDIAN Concierge
               <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-amber-400/10 text-amber-400 border border-amber-400/20">
+
                 Gemini
               </span>
             </h4>

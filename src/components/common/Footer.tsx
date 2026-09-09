@@ -23,11 +23,12 @@ export const Footer: React.FC<FooterProps> = ({
             </div>
             <div>
               <span className="font-display tracking-[0.25em] text-lg font-bold text-white uppercase block leading-none">
-                VOYAGE
+                MERIDIAN
               </span>
-              <span className="text-[9px] tracking-[0.2em] text-neutral-500 uppercase font-sans block mt-0.5">
-                designesthetics
+              <span className="text-[9px] tracking-[0.2em] text-amber-400/80 uppercase font-sans block mt-0.5">
+                GLOBAL EXPEDITIONS & AI
               </span>
+
             </div>
           </div>
           <p className="font-light leading-relaxed text-neutral-400">
@@ -99,8 +100,9 @@ export const Footer: React.FC<FooterProps> = ({
 
       <div className="max-w-7xl mx-auto pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-neutral-500">
         <p>
-          Crafted for the Front-End Developer Assignment • <strong className="text-neutral-300">designesthetics</strong>.
+          Crafted with poise & precision • <strong className="text-neutral-300">MERIDIAN Travel Intelligence</strong>.
         </p>
+
         <div className="flex items-center gap-4">
           <span>React 18</span>
           <span>•</span>

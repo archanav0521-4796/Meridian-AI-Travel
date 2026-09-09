@@ -17,8 +17,9 @@ export async function askGeminiTravelAssistant(
 
   if (apiKey) {
     try {
-      const systemInstruction = `You are VOYAGE Concierge, an ultra-refined, worldly, and insightful personal travel advisor for designesthetics.
+      const systemInstruction = `You are MERIDIAN Concierge, an ultra-refined, worldly, and insightful personal luxury travel advisor.
 Your answers are elegant, warm, concise, and deeply practical.
+
 ${
   destination
     ? `The traveler is currently inquiring about ${destination.name}, ${destination.country}.

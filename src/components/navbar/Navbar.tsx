@@ -35,11 +35,12 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
           <div className="text-left">
             <span className="font-display tracking-[0.25em] text-xl font-bold text-white uppercase block leading-none">
-              VOYAGE
+              MERIDIAN
             </span>
-            <span className="text-[10px] tracking-[0.2em] text-neutral-400 uppercase font-sans block mt-1">
-              designesthetics
+            <span className="text-[10px] tracking-[0.2em] text-amber-400/80 uppercase font-sans block mt-1">
+              EXPEDITIONS & AI
             </span>
+
           </div>
         </a>
 
