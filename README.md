@@ -6,8 +6,7 @@
 
 ## 🌐 Live Deployed Application
 
-- **Live URL**: *(Ready for GitHub Pages / Vercel / Netlify deployment)*
-- **GitHub Repository**: Public repository ready for showcase
+- **GitHub Repository**: [https://github.com/archanav0521-4796/Meridian-AI-Travel](https://github.com/archanav0521-4796/Meridian-AI-Travel)
 
 ---
 
@@ -17,47 +16,58 @@
 
 ---
 
-## 🌏 Curated Portfolios (21 Global Destinations)
+## 🌏 Curated Portfolios (30 Global Destinations)
 
-### 🇮🇳 India & South Asia
-- **Jaipur & Rajasthan (India)**: The Pink City, Amber Fort, Sheesh Mahal mirror mosaic, and Hawa Mahal.
+### 🇮🇳 India & South Asia (Priority Region)
+- **Jaipur & Rajasthan (India)**: The Pink City, Amber Fort & Sheesh Mahal, and Hawa Mahal.
 - **Kerala Backwaters & Munnar (India)**: Alleppey luxury houseboats, Vembanad Lake, and misty Kolukkumalai tea peaks.
 - **Varanasi (India)**: Sacred Ganga ghats, hypnotic evening Maha Aarti, and ancient Sarnath deer park.
 - **Ladakh & Pangong Tso (India)**: High-altitude salt lake, Thiksey Monastery, and Khardung La mountain pass.
 - **Goa & Konkan Coast (India)**: Arabian Sea sunset shacks, Palolem crescent bay, and UNESCO Baroque basilicas.
+- **Andaman Islands (India)**: Radhanagar Beach (Beach No. 7), Cellular Jail Memorial, and Elephant Beach coral reefs.
 - **Sri Lanka**: 5th-century Sigiriya Lion Rock sky palace, Ella Nine Arch viaduct, and Galle Dutch Fort.
 - **Bhutan**: Paro Taktsang (Tiger’s Nest cliffside monastery), Punakha Dzong, and Gross National Happiness.
 - **Nepal**: Sacred Boudhanath mandala stupa, Phewa Lake boating, and Annapurna sunrise at Sarangkot.
 - **Maldives**: Baa Atoll UNESCO Biosphere, Hanifaru Bay manta ray cyclones, and bioluminescent lagoons.
 
-### 🌍 Global Icons
+### 🌴 Southeast & East Asia
+- **Thailand**: The Grand Palace & Wat Phra Kaew, Phi Phi Islands & Maya Bay lagoon, and Wat Arun.
+- **Bali (Indonesia)**: Tegallalang stepped rice terraces, Uluwatu cliffside Kecak fire dance, and Tanah Lot sea temple.
+- **South Korea (Seoul & Jeju)**: Gyeongbokgung Royal Palace, Bukchon Hanok village, and Seongsan Ilchulbong sunrise peak.
 - **Kyoto (Japan)**: Fushimi Inari torii gates, Kinkaku-ji Golden Pavilion, and Arashiyama bamboo grove.
+- **Tokyo (Japan)**: Sensō-ji Temple in Asakusa, Shibuya Sky, and meiji shrine.
+- **Singapore**: Gardens by the Bay Supertree Grove, Marina Bay Sands SkyPark, and Jewel Changi Rain Vortex.
+
+### 🌍 Global Icons & World Capitals
+- **Dubai (UAE)**: Burj Khalifa & Dubai Fountain, Palm Jumeirah, and Museum of the Future.
 - **Paris (France)**: The Eiffel Tower summit, Musée du Louvre, and Montmartre Sacré-Cœur.
 - **Santorini (Greece)**: Oia caldera rim, Skaros Rock, and whitewashed Aegean cubism.
-- **Cape Town (South Africa)**: Table Mountain rotating cableway, Boulders Beach penguin colony, and Bo-Kaap.
+- **Rome (Italy)**: The Colosseum & Roman Forum, Vatican City & St. Peter's Basilica, and the Trevi Fountain.
+- **London (United Kingdom)**: Big Ben & Palace of Westminster, Tower Bridge, and the British Museum.
+- **New York City (United States)**: Central Park, Statue of Liberty, and the Empire State Building.
 - **Amalfi Coast (Italy)**: Positano pastel cliffs and Ravello Villa Cimbrone Terrace of Infinity.
-- **Bali (Indonesia)**: Tegallalang stepped rice terraces and Uluwatu cliffside Kecak fire dance.
 - **Swiss Alps & Zermatt (Switzerland)**: Gornergrat cogwheel railway and Matterhorn alpine panorama.
 - **Reykjavik (Iceland)**: Hallgrímskirkja basalt tower, Gullfoss waterfall, and Strokkur geysers.
 - **Banff & Lake Louise (Canada)**: Turquoise glacial waters framed by the Canadian Rocky Mountains.
 - **Rio de Janeiro (Brazil)**: Christ the Redeemer atop Corcovado and golden sands of Copacabana.
+- **Cape Town (South Africa)**: Table Mountain rotating cableway, Boulders Beach penguin colony, and Bo-Kaap.
 - **Cairo & Giza (Egypt)**: The Great Pyramids and the Sphinx defying time on the desert plateau.
 - **Queenstown (New Zealand)**: Glacial Lake Wakatipu and Skyline Gondola over the Remarkables.
-- **Tokyo (Japan)**: Sensō-ji Temple in Asakusa and neon-lit Shibuya crossing.
 
 ---
 
 ## ✨ 8 Core Requirements Built
 
 ### 1. 01 A Landing Experience
-- Full-viewport hero featuring a **smooth looping background video** of coastal waters and mountain mist.
-- Ambient sound generator synthesizing gentle ocean wave acoustics via the **Web Audio API** (guaranteed to work universally without blocked third-party audio files).
-- Editorial typography, instant search pill, live statistics ticker, and quick continent pill filters that invite the visitor to explore.
+- Full-viewport hero featuring a **silent 10-second alternating background video** cross-fading seamlessly between coastal waters and golden sunset reflections.
+- Editorial typography, instant search pill, dynamic destination ticker, and quick region pill filters with **India placed first**.
+- Completely uncluttered design with zero intrusive overlay buttons or technical badges.
 
 ### 2. 02 Destination Explorer
-- Multi-faceted exploration across **21 world-class destinations** spanning 5 continents.
+- Multi-faceted exploration across **30 world-class destinations** spanning all major continents.
 - Real-time search with fuzzy matching across names, countries, tags, landmarks, and vibes.
-- Dynamic filtering by **Region** (Europe, Asia, Americas, Africa, Oceania) and **Atmosphere** (Cultural & Historic, Beach & Coastal, Alpine & Nature, Urban & Modern, Romantic & Luxury).
+- Dynamic filtering by **Region** (`India`, `Asia`, `Europe`, `Americas`, `Africa`, `Oceania`) with **India featured first**.
+- Atmosphere filters (`Cultural & Historic`, `Beach & Coastal`, `Alpine & Nature`, `Urban & Modern`, `Romantic & Luxury`).
 - Sorting by **Featured**, **Nearest to You**, **Furthest Away**, **Daily Budget**, and **Name**.
 - Clicking any destination opens a dedicated **Destination Page View** with 5 in-depth interactive tabs (*Overview & Culture*, *Famous Places*, *Live Weather & Climate*, *Interactive Map*, and *AI Itinerary Planner*).
 
