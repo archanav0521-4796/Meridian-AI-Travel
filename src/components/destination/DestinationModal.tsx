@@ -14,6 +14,7 @@ import {
   CloudSun,
   Map as MapIcon,
   Compass,
+  Navigation,
 } from 'lucide-react';
 import { Destination, UserLocation, GeneratedItinerary } from '../../types';
 import { calculateDistanceKm, estimateFlightDuration } from '../../services/geocodingApi';
@@ -190,7 +191,7 @@ export const DestinationModal: React.FC<DestinationModalProps> = ({
             }`}
           >
             <MapIcon className="w-4 h-4" />
-            <span>Interactive Map</span>
+            <span>Interactive Map & Route</span>
           </button>
 
           <button
@@ -251,6 +252,29 @@ export const DestinationModal: React.FC<DestinationModalProps> = ({
                     </li>
                   ))}
                 </ul>
+              </div>
+
+              {/* Route Map Call to Action Banner */}
+              <div className="p-6 rounded-3xl bg-gradient-to-r from-amber-500/10 via-amber-600/5 to-transparent border border-amber-500/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div>
+                  <div className="flex items-center gap-2 text-xs font-mono text-amber-400 uppercase tracking-wider mb-1">
+                    <Navigation className="w-3.5 h-3.5" />
+                    <span>Curated Landmark Route Available</span>
+                  </div>
+                  <h4 className="font-serif text-lg text-white font-normal">
+                    Explore the {destination.famousPlaces.length}-Stop Discovery Circuit
+                  </h4>
+                  <p className="text-xs text-neutral-400 font-light mt-0.5">
+                    Interactive route polyline, distance metrics, and transit times • Zero API key required
+                  </p>
+                </div>
+                <button
+                  onClick={() => setActiveTab('map')}
+                  className="px-4 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-neutral-950 text-xs font-semibold flex items-center gap-1.5 transition shadow-lg shadow-amber-500/20 shrink-0 cursor-pointer"
+                >
+                  <MapIcon className="w-3.5 h-3.5" />
+                  <span>View Route on Map</span>
+                </button>
               </div>
             </div>
           )}
