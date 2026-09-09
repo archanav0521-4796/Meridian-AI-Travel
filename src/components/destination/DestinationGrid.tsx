@@ -32,7 +32,7 @@ export const DestinationGrid: React.FC<DestinationGridProps> = ({
   const [selectedVibe, setSelectedVibe] = useState<TravelVibe>('All');
   const [sortBy, setSortBy] = useState<'featured' | 'nearest' | 'furthest' | 'budget' | 'name'>('featured');
 
-  const continents: Continent[] = ['All', 'Europe', 'Asia', 'Americas', 'Africa', 'Oceania'];
+  const continents: Continent[] = ['All', 'India', 'Asia', 'Europe', 'Americas', 'Africa', 'Oceania'];
   const vibes: TravelVibe[] = [
     'All',
     'Cultural & Historic',
@@ -46,9 +46,13 @@ export const DestinationGrid: React.FC<DestinationGridProps> = ({
   const filteredDestinations = useMemo(() => {
     return destinations
       .filter((dest) => {
-        // Continent filter
-        if (selectedContinent !== 'All' && dest.continent !== selectedContinent) {
-          return false;
+        // Continent / Region filter
+        if (selectedContinent !== 'All') {
+          if (selectedContinent === 'India') {
+            if (dest.country !== 'India') return false;
+          } else if (dest.continent !== selectedContinent) {
+            return false;
+          }
         }
 
         // Vibe filter

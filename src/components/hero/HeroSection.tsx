@@ -46,7 +46,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     return () => clearInterval(interval);
   }, []);
 
-  const continents: Continent[] = ['All', 'Europe', 'Asia', 'Americas', 'Africa', 'Oceania'];
+  const continents: Continent[] = ['All', 'India', 'Asia', 'Europe', 'Americas', 'Africa', 'Oceania'];
 
   return (
     <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden bg-black">

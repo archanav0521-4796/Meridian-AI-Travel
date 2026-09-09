@@ -1,7 +1,8 @@
 export type Continent =
   | 'All'
-  | 'Europe'
+  | 'India'
   | 'Asia'
+  | 'Europe'
   | 'Americas'
   | 'Africa'
   | 'Oceania';
