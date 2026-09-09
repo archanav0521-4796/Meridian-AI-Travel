@@ -6,6 +6,7 @@
 
 ## 🌐 Live Deployed Application
 
+- **Live URL**: [https://archanav0521-4796.github.io/Meridian-AI-Travel/](https://archanav0521-4796.github.io/Meridian-AI-Travel/)
 - **GitHub Repository**: [https://github.com/archanav0521-4796/Meridian-AI-Travel](https://github.com/archanav0521-4796/Meridian-AI-Travel)
 
 ---
