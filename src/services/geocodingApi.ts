@@ -13,6 +13,8 @@ export const POPULAR_DEPARTURE_HUBS: CityLocation[] = [
   { city: 'Hyderabad', country: 'India', lat: 17.385, lng: 78.4867, continent: 'Asia' },
   { city: 'Chennai', country: 'India', lat: 13.0827, lng: 80.2707, continent: 'Asia' },
   { city: 'Kolkata', country: 'India', lat: 22.5726, lng: 88.3639, continent: 'Asia' },
+  { city: 'Port Blair', country: 'India', lat: 11.6234, lng: 92.7265, continent: 'Asia' },
+  { city: 'Bali (Denpasar)', country: 'Indonesia', lat: -8.65, lng: 115.2167, continent: 'Asia' },
   { city: 'Colombo', country: 'Sri Lanka', lat: 6.9271, lng: 79.8612, continent: 'Asia' },
   { city: 'Kathmandu', country: 'Nepal', lat: 27.7172, lng: 85.324, continent: 'Asia' },
   { city: 'Male', country: 'Maldives', lat: 4.1755, lng: 73.5093, continent: 'Asia' },

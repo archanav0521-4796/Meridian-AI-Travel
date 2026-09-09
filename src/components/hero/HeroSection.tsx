@@ -7,6 +7,7 @@ interface HeroSectionProps {
   onSearchChange: (q: string) => void;
   onSelectContinent: (c: Continent) => void;
   selectedContinent: Continent;
+  totalDestinations?: number;
 }
 
 const VIDEO_SCENES = [
@@ -31,6 +32,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onSearchChange,
   onSelectContinent,
   selectedContinent,
+  totalDestinations = 30,
 }) => {
   const [activeSceneIndex, setActiveSceneIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -297,7 +299,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         {/* Live Metrics Ticker */}
         <div className="mt-14 pt-8 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto text-left">
           <div className="px-3">
-            <span className="block text-2xl font-serif text-white">21</span>
+            <span className="block text-2xl font-serif text-white">{totalDestinations}</span>
             <span className="text-[11px] text-neutral-400 uppercase tracking-wider">Curated Destinations</span>
           </div>
 

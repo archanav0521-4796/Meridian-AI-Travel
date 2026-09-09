@@ -92,6 +92,7 @@ function AppContent() {
           onSearchChange={setSearchQuery}
           onSelectContinent={setSelectedContinent}
           selectedContinent={selectedContinent}
+          totalDestinations={DESTINATIONS.length}
         />
 
         {/* Requirement 02 & 04 & 05: Destination explorer with live weather and distance */}
